@@ -23,6 +23,8 @@ require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'mini_magick'
 require 'bcrypt'
+require 'twitter'
+require 'pry'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -41,3 +43,9 @@ CarrierWave.configure do |config|
     config.root = APP_ROOT + 'public/'
 end
 
+Twitter.configure do |config|
+  config.consumer_key = "ykycwt640Rzmcnw0NQPvjg"
+  config.consumer_secret = "n6ClmmIwx3rEkp4xzXS0IonoacgLqUqfJe3z24HA"
+  config.oauth_token = "46774768-bm6R1BRXHsmzA3phs4VmysYY04TijjrBNuvLXIPmy"
+  config.oauth_token_secret = "dMTgXrUzmcMuMVqau2EOIdqCWtv1wlRaTkI83g5CNcQ"
+end
