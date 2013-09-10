@@ -43,9 +43,7 @@ CarrierWave.configure do |config|
     config.root = APP_ROOT + 'public/'
 end
 
-Twitter.configure do |config|
-  config.consumer_key = "ykycwt640Rzmcnw0NQPvjg"
-  config.consumer_secret = "n6ClmmIwx3rEkp4xzXS0IonoacgLqUqfJe3z24HA"
-  config.oauth_token = "46774768-bm6R1BRXHsmzA3phs4VmysYY04TijjrBNuvLXIPmy"
-  config.oauth_token_secret = "dMTgXrUzmcMuMVqau2EOIdqCWtv1wlRaTkI83g5CNcQ"
+Twitter.configure
+  twitter_config
 end
+
