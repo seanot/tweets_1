@@ -90,3 +90,16 @@ footer > p > a {
   text-decoration: none;
   color: white;
 }
+
+.spinner {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#spinner {
+  display: block;
+  /*text-align:center;*/
+  /*margin: auto;*/
+}

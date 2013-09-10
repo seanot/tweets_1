@@ -12,7 +12,7 @@ class TwitterUser < ActiveRecord::Base
   end
 
   def tweets_stale?
-    if (Time.now - self.tweets.first.created_at) > 900 || self.tweets == nil
+    if (Time.now - self.tweets.first.created_at) > 900 || self.tweets == []
       return true
     else
       return false

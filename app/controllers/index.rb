@@ -5,17 +5,36 @@ get '/' do
 
 end
 
+get '/get_username' do
+  erb :get_username
+end
+
 get '/:username' do
   @user = TwitterUser.find_by_username(params[:username])
   if @user.tweets_stale?
     @user.clear_tweets!
-    @user.fetch_tweets!
+    erb :tweets
   end  
-  @tweets = @user.tweets
+  @tweets = @user.tweets.limit(10)
   erb :tweets
 end
 
 
+#POST ============================================
+
+post '/get_username' do
+  @user = TwitterUser.find_or_create_by_username(params[:username])
+
+    if @user.tweets_stale?
+      @user.clear_tweets!
+      @user.fetch_tweets!
+      @tweets = @user.tweets.limit(10)
+      erb :tweets
+    else
+      @tweets = @user.tweets.limit(10)
+      erb :tweets
+    end
+end
 
 # get '/' do
 #   erb :index
